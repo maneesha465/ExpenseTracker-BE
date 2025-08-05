@@ -70,7 +70,7 @@ export const getDashboardData = async(req,res) => {
             (totalIncome[0]?.total || 0) - (totalExpense[0]?.total || 0),
             totalIncome: totalIncome[0]?.total || 0,
             totalExpense: totalExpense[0]?.total || 0,
-            last30daysExpenses: {
+            last30DaysExpenses: {
                 total: expensesLast30Days,
                 transactions : last30daysExpenseTransactions,
             },
@@ -78,7 +78,7 @@ export const getDashboardData = async(req,res) => {
                 total: incomeLast60Days,
                 transactions: last60DaysIncomeTransactions
             },
-            recentTansactions: lastTransactions,
+            recentTransactions: lastTransactions,
         });
 
         

@@ -23,7 +23,8 @@ try {
         icon,
         category,
         amount,
-        date:new Date(date)
+        date: date ? new Date(date) : new Date()
+
     })
 
     await newExpense.save()
