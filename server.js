@@ -44,6 +44,14 @@ app.use("/api/v1/dashboard", dashboardRoutes);
 //server uploads folder
 app.use("/uploads",express.static(path.join(__dirname,"uploads")));
 
+// ✅ Serve React frontend (after build)
+const __buildpath = path.join(__dirname, "../client/dist"); // Adjust if build folder is different
+app.use(express.static(__buildpath));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__buildpath, "index.html"));
+});
+
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () =>{
   console.log(`Server running on port ${PORT}`);
